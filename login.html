@@ -37,11 +37,11 @@
                     <input type="text" class="form-control w-100" id="loginusername" placeholder="Username">
 
                 </div>
-                <div class="mb-3 mt-3">
+                <!-- <div class="mb-3 mt-3">
 
                     <input type="text" class="form-control w-100" id="loginaccountNumber" placeholder="Account Number">
 
-                </div>
+                </div> -->
                 <div class="mb-3">
 
                     <input type="password" class="form-control w-100" id="loginpassword" placeholder="Password">
@@ -60,16 +60,16 @@
     <script>
         function loginUser() {
             const username = document.getElementById('loginusername').value;
-            const accountNumber = document.getElementById('loginaccountNumber').value;
+            // const accountNumber = document.getElementById('loginaccountNumber').value;
             const password = document.getElementById('loginpassword').value;
 
 
 
-            if (username && accountNumber && password) {
+            if (username  && password) {
                 // Save user details to local storage
                 localStorage.setItem('username', username);
-                localStorage.setItem('accountNumber', accountNumber);
-                localStorage.setItem('password', password);
+                // localStorage.setItem('accountNumber', accountNumber);
+                // localStorage.setItem('password', password);
 
                 alert('You are successfully logged in');
                 window.location.href = 'home.html'; // Redirect to the home page
