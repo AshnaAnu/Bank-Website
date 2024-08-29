@@ -208,7 +208,12 @@
     <script>
 
         // deposit function 
-        let balance = 0; // Initial balance amount
+        // let balance = 0; // Initial balance amount
+        let balance = Number(localStorage.getItem('balance')) || 0;
+
+        // Update the balance display immediately
+        document.getElementById('balanceDisplay').innerHTML = 'Your Account Balance: ₹' + balance;
+
 
         function depositAmounter() {
             const amount = document.getElementById('depositAmount').value;
@@ -216,6 +221,7 @@
 
             if (amount && password) {
                 balance += +amount; // Implicitly convert amount to number and add to balance
+                localStorage.setItem('balance', balance);
                 alert('Amount successfully added');
                 document.getElementById('balanceDisplay').innerHTML = 'Your Account Balance: ₹' + balance;
             } else {
@@ -232,7 +238,9 @@
             if (amount && password) {
                 if (amount <= balance) {
                     balance -= +amount; // Implicitly convert amount to number and subtract from balance
+                    localStorage.setItem('balance', balance);
                     alert('Amount successfully withdrawn');
+
                     document.getElementById('balanceDisplay').innerHTML = 'Your Account Balance: ₹' + balance;
                 } else {
                     alert('Insufficient balance');
